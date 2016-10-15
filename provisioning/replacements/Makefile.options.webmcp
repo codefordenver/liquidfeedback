@@ -1,0 +1,26 @@
+# C compiler command
+CC = cc
+
+# linker command
+LD = ld
+
+# filename extension for shared libraries
+SLIB_EXT = so
+
+# Lua binaries
+LUA_BIN = lua
+LUAC_BIN = luac
+
+# C compiler flags
+# TODO: check alternatives to -D_GNU_SOURCE -fPIC
+#       using libtool?
+CFLAGS = -O2 -D_GNU_SOURCE -fPIC -Wall -I /usr/include -I /usr/local/include -I /usr/local/include/lua52 -I /usr/include/lua5.2
+
+# additional C compiler flags for parts which depend on PostgreSQL
+CFLAGS_PGSQL = -I `pg_config --includedir` -I `pg_config --pkgincludedir` -I `pg_config --includedir-server`
+
+# linker flags
+LDFLAGS = -shared -L /usr/lib -L /usr/local/lib
+
+# additional linker flags for parts which depend on PostgreSQL
+LDFLAGS_PGSQL = -L `pg_config --libdir` -rpath `pg_config --libdir`
