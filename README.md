@@ -10,14 +10,18 @@ As of the initial commit, the actual LiquidFeedback files are not under version 
 
 To get vanilla LiquidFeedback up and running:
 
-1. Install or Update [VirtualBox](https://www.virtualbox.org).
-2. Install or Update [Vagrant](https://www.vagrantup.com).
-3. Clone this repository to your machine.
-4. Navigate to the repo directory.
-5. Run `vagrant up`.
-6. Enter your password when prompted.
+1. Install or Update [VirtualBox](https://www.virtualbox.org)
+2. Install or Update [Vagrant](https://www.vagrantup.com)
+3. Clone this repository to your machine
+4. Navigate to the repo directory
+5. Run `vagrant up`
+6. Enter your password when prompted
 
-Running `vagrant up` downloads a Debian Stretch image to your host machine and provisions it with everything this project needs to run. This will take a few minutes, so be patient.
+Running `vagrant up` downloads a Debian Stretch image to your host machine and provisions it with everything this project needs to run. This will take a few minutes, so be patient. When you are prompted to select your network interface, enter the number from the displayed list that corresponds to your active internet connection.
+
+**NB:** Certain versions of Vagrant shipped with a corrupted version of `curl` so if you receive an error stating that `Box 'fujimakishouten/debian-stretch64' could not be found` when first starting up the VM, you may need to delete the shipped curl version located at `/opt/vagrant/embedded/bin/curl`.
+
+**NB:** Some users have reported receiving a repeating `Error: Connection timeout. Retrying...` error during initial provisioning. If this occurs, [this question on stackoverflow](http://stackoverflow.com/questions/22575261/vagrant-stuck-connection-timeout-retrying) might provide some guidance on troubleshooting.
 
 #### System Provisioning
 
